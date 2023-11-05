@@ -8,7 +8,7 @@ type CardComponentProps = {
 export const CardComponent = styled(Box)<CardComponentProps>(
   ({ theme, variant, borderRadius = 20 }) => ({
     position: 'relative',
-    maxWidth: 345,
+    // maxWidth: 345,
     minHeight: 196,
     border:
       variant === 'primary'
@@ -24,6 +24,14 @@ export const CardComponent = styled(Box)<CardComponentProps>(
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     transition: 'box-shadow .2s ease',
+    cursor: 'pointer',
+    img: {
+      display: 'block',
+      width: '100%',
+      height: '100%',
+      objectFit: 'cover',
+      borderRadius: 'inherit'
+    },
     '&:hover, &:active': {
       boxShadow:
         variant === 'primary'
