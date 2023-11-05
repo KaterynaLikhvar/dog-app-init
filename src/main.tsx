@@ -11,7 +11,8 @@ import {
   BreedItemPage,
   VotePage,
   HistoryPage,
-  UploadsPage
+  UploadsPage,
+  MainPage
 } from './pages';
 
 const router = createBrowserRouter([
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
     element: <App />,
     errorElement: <div>Error</div>,
     children: [
+      {
+        path: '',
+        element: <MainPage />
+      },
       {
         path: 'breed/:breedId',
         element: <BreedItemPage />

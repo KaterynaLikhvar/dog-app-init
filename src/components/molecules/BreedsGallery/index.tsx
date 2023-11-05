@@ -1,8 +1,8 @@
 import { styled, Box, Button } from '@mui/material';
 import { useState } from 'react';
 import { CardComponent } from '../../atoms/CardComponent';
-import { useGetImagesQuery } from '../../../services/images';
 import { HeartIcon } from '../../atoms/HeartIcon';
+import { useGetImagesQuery } from '../../../services/images';
 
 const StyledBreedsGallery = styled(Box)({
   display: 'grid',

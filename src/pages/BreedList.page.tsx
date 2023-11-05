@@ -1,17 +1,10 @@
-// import { useGetBreedsQuery } from '../services/breeds';
+import { BreedsGrid } from '../components/molecules/BreedsGrid';
+import { PageWrapper } from '../components/molecules/PageWrapper';
+import { FilterComponent } from '../components/organisms/FilterComponent';
 
-// export const BreedListPage = () => {
-//   const { data: breeds, isLoading } = useGetBreedsQuery();
-//   return (
-//     <>
-//       {isLoading && <div>Loading...</div>}
-//       {(breeds || []).map(item => {
-//         console.log(item);
-//         return <div key={item.id}>{item.name}</div>;
-//       })}
-//       <BreedsGallery></BreedsGallery>
-//     </>
-//   );
-// };
-
-export const BreedListPage = () => <div>Breed List Page</div>;
+export const BreedListPage = () => (
+  <PageWrapper>
+    <FilterComponent />
+    <BreedsGrid />
+  </PageWrapper>
+);
