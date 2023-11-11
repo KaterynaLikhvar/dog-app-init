@@ -1,16 +1,19 @@
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
-import React from 'react';
+import { FC } from 'react';
 
-export default function PaginationControlled() {
-  const [page, setPage] = React.useState(1);
-  const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
-    setPage(value);
-  };
+type PaginationControlledProps = {
+  page: number;
+  handleChange: (_event: React.ChangeEvent<unknown>, value: number) => void;
+};
 
-  return (
-    <Stack spacing={2} margin="20px 0 0 auto" width="fit-content">
-      <Pagination count={10} page={page} onChange={handleChange} />
-    </Stack>
-  );
-}
+const PaginationControlled: FC<PaginationControlledProps> = ({
+  page,
+  handleChange
+}) => (
+  <Stack spacing={2} margin="20px 0 0 auto" width="fit-content">
+    <Pagination count={10} page={page} onChange={handleChange} />
+  </Stack>
+);
+
+export default PaginationControlled;

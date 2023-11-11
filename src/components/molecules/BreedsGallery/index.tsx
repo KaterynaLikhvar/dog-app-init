@@ -1,5 +1,5 @@
 import { styled, Box, Button } from '@mui/material';
-import { useState } from 'react';
+import { FC, useState } from 'react';
 import { CardComponent } from '../../atoms/CardComponent';
 import { HeartIcon } from '../../atoms/HeartIcon';
 import { useGetImagesQuery } from '../../../services/images';
@@ -52,8 +52,15 @@ const StyledBreedsGallery = styled(Box)({
   }
 });
 
-export const BreedsGallery = () => {
-  const { data: images, isLoading } = useGetImagesQuery({ limit: 10, page: 0 });
+type BreedsGalleryProps = {
+  page: number;
+};
+
+export const BreedsGallery: FC<BreedsGalleryProps> = ({ page }) => {
+  const { data: images, isLoading } = useGetImagesQuery({
+    limit: 10,
+    page
+  });
   const [hoveredCardIndex, setHoveredCardIndex] = useState<number | null>(null);
   return (
     <StyledBreedsGallery>
