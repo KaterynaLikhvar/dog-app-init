@@ -1,22 +1,29 @@
 import { api } from './api';
 
 export interface Image {
+  breeds: [
+    {
+      weight: {
+        imperial: string;
+        metric: string;
+      };
+      height: {
+        imperial: string;
+        metric: string;
+      };
+      id: 94;
+      name: string;
+      bred_for: string;
+      breed_group: string;
+      life_span: string;
+      temperament: string;
+      reference_image_id: string;
+    }
+  ];
   id: string;
   url: string;
   width: number;
   height: number;
-  mime_type: string;
-  breeds: [
-    {
-      id: number;
-      name: string;
-      weight: string;
-      height: string;
-      life_span: string;
-      breed_group: string;
-    }
-  ];
-  categories: [];
 }
 
 type ImagesResponse = Image[];
@@ -28,7 +35,7 @@ export interface User {
   phone: string;
 }
 
-export const postsApi = api.injectEndpoints({
+export const imagesApi = api.injectEndpoints({
   endpoints: build => ({
     getImages: build.query<ImagesResponse, { limit?: number; page?: number }>({
       query: ({ limit = 10, page = 0 }) => ({
@@ -42,8 +49,8 @@ export const postsApi = api.injectEndpoints({
   })
 });
 
-export const { useGetImagesQuery } = postsApi;
+export const { useGetImagesQuery } = imagesApi;
 
 export const {
   endpoints: { getImages }
-} = postsApi;
+} = imagesApi;

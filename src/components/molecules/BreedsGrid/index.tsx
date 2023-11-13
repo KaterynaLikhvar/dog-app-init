@@ -43,7 +43,7 @@ export const BreedsGrid = () => {
             // onMouseOver={() => setHoveredCardIndex(index)}
             // onMouseOut={() => setHoveredCardIndex(null)}
           >
-            <HeartIcon isHovered={false} />
+            <HeartIcon isHovered={false} isFilled={false} />
           </Button>
           <Typography fontSize={26} fontWeight={500}>
             {item.name}
