@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { ApiProvider } from '@reduxjs/toolkit/dist/query/react';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
 import App from './App';
-import { api } from './services/api';
+import { store } from './services/store';
 import './index.css';
 import { DogAppThemeProvider } from './theme';
 import {
@@ -12,7 +12,8 @@ import {
   VotePage,
   HistoryPage,
   UploadsPage,
-  MainPage
+  MainPage,
+  FavoritesPage
 } from './pages';
 
 const router = createBrowserRouter([
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
       {
         path: 'uploads',
         element: <UploadsPage />
+      },
+      {
+        path: 'favorites',
+        element: <FavoritesPage />
       }
     ]
   }
@@ -51,10 +56,10 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <ApiProvider api={api}>
+    <Provider store={store}>
       <DogAppThemeProvider>
         <RouterProvider router={router} />
       </DogAppThemeProvider>
-    </ApiProvider>
+    </Provider>
   </React.StrictMode>
 );

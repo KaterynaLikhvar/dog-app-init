@@ -10,7 +10,6 @@ const StyledPageWrapper = styled(Box)<PageWrapperProps>({
   width: '100%',
   minHeight: '100vh',
   padding: '24px 140px 52px',
-  backgroundImage: 'url(/background.svg)',
   backgroundSize: '722px',
   backgroundRepeat: 'no-repeat',
   borderRadius: '50%'
