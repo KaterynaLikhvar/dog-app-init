@@ -1,29 +1,7 @@
-import { Box, Button, Typography, styled } from '@mui/material';
+import { Button, Typography } from '@mui/material';
 import { useGetBreedsQuery } from '../../../services/breeds';
 import { CardComponent } from '../../atoms/CardComponent';
-import { HeartIcon } from '../../atoms/HeartIcon';
-
-const StyledBreedsGrid = styled(Box)({
-  display: 'grid',
-  gridTemplateColumns: 'repeat(3, 372px)',
-  gridGap: 22,
-  '& img': {
-    marginBottom: '14px',
-    height: '274px'
-  },
-  '& p': {
-    padding: '0 20px',
-    '-webkitBoxOrient': 'vertical',
-    '-webkitLineClamp': '2',
-    display: '-webkit-box',
-    overflow: 'hidden',
-    textOverflow: 'ellipsis'
-  },
-  '& .MuiButton-text': {
-    marginLeft: 'auto',
-    display: 'block'
-  }
-});
+import { StyledBreedsGrid } from './StyledBreedsGrid';
 
 export const BreedsGrid = () => {
   const { data: breeds, isLoading } = useGetBreedsQuery({ limit: 6, page: 0 });
@@ -38,13 +16,7 @@ export const BreedsGrid = () => {
           sx={{ paddingBottom: '172px' }}
         >
           <img src={item.image.url} alt={item.name} />
-          <Button
-            sx={{ position: 'absolute', top: 24, right: 24 }}
-            // onMouseOver={() => setHoveredCardIndex(index)}
-            // onMouseOut={() => setHoveredCardIndex(null)}
-          >
-            <HeartIcon isHovered={false} isFilled={false} />
-          </Button>
+          <Button sx={{ position: 'absolute', top: 24, right: 24 }} />
           <Typography fontSize={26} fontWeight={500}>
             {item.name}
           </Typography>
