@@ -27,11 +27,11 @@ const router = createBrowserRouter([
         element: <MainPage />
       },
       {
-        path: 'breed/:breedId',
+        path: 'breeds/:breedId',
         element: <BreedItemPage />
       },
       {
-        path: 'breed',
+        path: 'breeds',
         element: <BreedListPage />
       },
       {

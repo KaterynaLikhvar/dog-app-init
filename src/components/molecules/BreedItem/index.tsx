@@ -14,7 +14,7 @@ type BreedItemProps = {
   };
   isFavorite: boolean;
   url: string;
-  addFavorite: any;
+  addFavorite: [];
 };
 
 export const BreedItem: FC<BreedItemProps> = ({
@@ -47,7 +47,7 @@ export const BreedItem: FC<BreedItemProps> = ({
       >
         <HeartIcon isHovered={isHeartIconHovered} isFilled={isFavorite} />
       </Box>
-      {isCardHovered && item.id && <BreedItemLink />}
+      {isCardHovered && item.id && <BreedItemLink breedId={item.id} />}
     </CardComponent>
   );
 };

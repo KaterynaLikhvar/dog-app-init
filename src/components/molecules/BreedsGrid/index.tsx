@@ -1,4 +1,5 @@
 import { Button, Typography } from '@mui/material';
+import { Link } from 'react-router-dom';
 import { useGetBreedsQuery } from '../../../services/breeds';
 import { CardComponent } from '../../atoms/CardComponent';
 import { StyledBreedsGrid } from './StyledBreedsGrid';
@@ -30,7 +31,7 @@ export const BreedsGrid = () => {
               {item.temperament}
             </Typography>
           </Typography>
-          <Button variant="text">more</Button>
+          <Link to={`${item.reference_image_id}`}>more</Link>
         </CardComponent>
       ))}
     </StyledBreedsGrid>
