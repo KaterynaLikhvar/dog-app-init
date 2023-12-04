@@ -27,17 +27,10 @@ export interface Breed {
 
 type BreedsResponse = Breed[];
 
-export interface User {
-  first_name: string;
-  last_name: string;
-  email: string;
-  phone: string;
-}
-
 export const postsApi = api.injectEndpoints({
   endpoints: build => ({
     getBreeds: build.query<BreedsResponse, { limit?: number; page?: number }>({
-      query: ({ limit = 10, page = 0 }) => ({
+      query: ({ limit, page = 0 }) => ({
         url: `breeds?limit=${limit}&page=${page}`
       }),
       providesTags: (result = []) => [

@@ -1,11 +1,13 @@
 import { useParams } from 'react-router-dom';
+import { ImageComponent } from '../components/molecules/BreedItemGallery';
 
 export const BreedItemPage = () => {
   const { breedId } = useParams();
+
   return (
     <div>
       <h1>Breed: {breedId}</h1>
-      <div>Here will be Gallery</div>
+      <ImageComponent breedId={breedId} />
     </div>
   );
 };
