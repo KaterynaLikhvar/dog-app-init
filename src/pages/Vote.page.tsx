@@ -1,1 +1,1 @@
-export const VotePage = () => <div>Vote page</div>;
+export const VotePage = () => <div />;

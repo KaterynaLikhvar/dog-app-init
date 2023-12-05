@@ -35,7 +35,7 @@ const router = createBrowserRouter([
         element: <BreedListPage />
       },
       {
-        path: 'vote',
+        path: 'votes',
         element: <VotePage />
       },
       {

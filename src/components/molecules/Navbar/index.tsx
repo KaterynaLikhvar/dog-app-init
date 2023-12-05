@@ -14,7 +14,7 @@ const headerMenu = [
   },
   {
     title: 'Vote',
-    path: '/vote',
+    path: '/votes',
     id: 3
   },
   {

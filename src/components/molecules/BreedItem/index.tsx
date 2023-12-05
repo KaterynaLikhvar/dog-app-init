@@ -3,6 +3,7 @@ import { FC, useState } from 'react';
 import { CardComponent } from '../../atoms/CardComponent';
 import { HeartIcon } from '../../atoms/HeartIcon';
 import { BreedItemLink } from '../../atoms/BreedItemLink';
+import { Favorite } from '../../../services/favorites';
 
 type BreedItemProps = {
   item: {
@@ -14,7 +15,7 @@ type BreedItemProps = {
   };
   isFavorite: boolean;
   url: string;
-  addFavorite: [];
+  addFavorite: (favorite: Favorite) => void;
 };
 
 export const BreedItem: FC<BreedItemProps> = ({
@@ -26,7 +27,7 @@ export const BreedItem: FC<BreedItemProps> = ({
   const [isHeartIconHovered, setHeartIconHovered] = useState(false);
   const handleBtnAddClick = (id: string) => {
     if (!isFavorite) {
-      addFavorite({ image_id: id, sub_id: 'katya' });
+      addFavorite({ image_id: id });
     }
   };
   return (

@@ -1,1 +1,3 @@
-export const HistoryPage = () => <div>History page</div>;
+import { VoteSlider } from '../components/molecules/VoteSlider';
+
+export const HistoryPage = () => <VoteSlider />;

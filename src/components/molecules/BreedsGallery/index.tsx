@@ -14,7 +14,6 @@ export const BreedsGallery: FC<BreedsGalleryProps> = ({ page }) => {
     page
   });
   const [addFavorite] = useAddFavoritesMutation();
-
   return (
     <StyledBreedsGallery>
       {isLoading && <div>Loading...</div>}
