@@ -25,24 +25,44 @@ export interface Breed {
   };
 }
 
-type BreedsResponse = Breed[];
+export interface BreedId {
+  id: number;
+  name: string;
+  weight: string;
+  height: string;
+  life_span: string;
+  bred_for: string;
+  breed_group: string;
+}
 
-export const postsApi = api.injectEndpoints({
+type BreedsResponse = Breed[];
+type BreedIdResponse = BreedId[];
+
+export const breedsApi = api.injectEndpoints({
   endpoints: build => ({
     getBreeds: build.query<BreedsResponse, { limit?: number; page?: number }>({
-      query: ({ limit, page = 0 }) => ({
+      query: ({ limit, page }) => ({
         url: `breeds?limit=${limit}&page=${page}`
       }),
       providesTags: (result = []) => [
         ...result.map(({ id }) => ({ type: 'Breeds', id }) as const),
         { type: 'Breeds' as const, id: 'LIST' }
       ]
+    }),
+    getBreedById: build.query<BreedIdResponse, { id: number }>({
+      query: ({ id = 2 }) => ({
+        url: `breeds/${id}`
+      }),
+      providesTags: (result = []) => [
+        ...result.map(({ id }) => ({ type: 'BreedById', id }) as const),
+        { type: 'BreedById' as const, id: 'LIST' }
+      ]
     })
   })
 });
 
-export const { useGetBreedsQuery } = postsApi;
+export const { useGetBreedsQuery } = breedsApi;
 
 export const {
-  endpoints: { getBreeds }
-} = postsApi;
+  endpoints: { getBreeds, getBreedById }
+} = breedsApi;

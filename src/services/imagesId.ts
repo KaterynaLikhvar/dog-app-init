@@ -3,17 +3,29 @@ import { api } from './api';
 export interface Image {
   id: string;
   url: string;
-  width: number;
-  height: number;
-  mime_type: string;
   breeds: [
     {
+      weight: {
+        imperial: string;
+        metric: string;
+      };
+      height: {
+        imperial: string;
+        metric: string;
+      };
       id: number;
       name: string;
+      country_code: string;
+      bred_for: string;
+      breed_group: string;
+      life_span: string;
+      temperament: string;
+      origin: string;
+      reference_image_id: string;
     }
   ];
-  categories: [];
-  breed_ids: string;
+  width: number;
+  height: number;
 }
 
 type ImagesIdResponse = Image[];

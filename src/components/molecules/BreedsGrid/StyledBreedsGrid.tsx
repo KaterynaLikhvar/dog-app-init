@@ -19,5 +19,15 @@ export const StyledBreedsGrid = styled(Box)({
   '& .MuiButton-text': {
     marginLeft: 'auto',
     display: 'block'
+  },
+  '& a': {
+    width: '100%',
+    display: 'flex',
+    justifyContent: 'flex-end',
+    paddingRight: '20px',
+    color: '#FFCF32',
+    '&:hover': {
+      color: '#921FED'
+    }
   }
 });
